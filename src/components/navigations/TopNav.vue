@@ -1,6 +1,10 @@
 <template>
   <div class='TopNav'>
-    <h1>Edmodo Dashboard</h1>
+    <router-link
+      to='/'
+    >
+      <h1>Edmodo Dashboard</h1>
+    </router-link>
   </div>
 </template>
 

@@ -19,11 +19,11 @@ export default {
       type: Object
     }
   },
-  methods: {
-    ...mapActions([
-      'requestSubmissions'
-    ])
-  },
+  // methods: {
+  //   ...mapActions([
+  //     'requestSubmissions'
+  //   ])
+  // },
   computed: {
     ...mapGetters([
       'submissions'

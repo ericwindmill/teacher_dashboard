@@ -7,6 +7,7 @@
 
 <script>
 import TopNav from './components/navigations/TopNav'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'app',
