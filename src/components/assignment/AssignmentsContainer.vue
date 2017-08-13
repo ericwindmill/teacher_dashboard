@@ -2,7 +2,7 @@
   <div class='AssignmentContainer'>
     <assignment
       v-for='(assignment, index) in assignments'
-      v-show="routeid === assignment.id "  
+      v-show="routeid === assignment.title.split(' ').join('-')"  
       :routeid='routeid'
       :key='index'
       :assignment='assignment'

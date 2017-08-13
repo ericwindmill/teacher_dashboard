@@ -1,7 +1,7 @@
 <template>
   <router-link 
     active-class='AssignmentListItem--active'  
-    :to="{name: 'Assignment', params: {assignmentid: assignment.id}}" 
+    :to="{name: 'Assignment', params: {assignmentid: assignment.title.split(' ').join('-')}}" 
   >
     <div class='AssignmentSidebar--ListItem' >
     <dt>{{assignment.title}}</dt>
@@ -17,7 +17,7 @@ export default {
     assignment: {
       type: Object
     }
-  }
+  },
 }
 </script>
 
