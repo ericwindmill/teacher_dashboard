@@ -1,17 +1,23 @@
 <template>
   <div class='StudentSubmission'
-    @click='changeShow(submission.id)'
   >
-    <dt>
+    <dt @click='changeShow(submission.id)'>
       <img :src="submission.creator.avatars.small" />
       <h3>{{submission.creator.first_name}} {{submission.creator.last_name}}</h3>
       <sub>Username: {{submission.creator.username}}</sub>
       <sub>ID: {{submission.creator.id}}</sub>
+      <h4 v-show="submission.status !== 'not_graded'">{{submission.status}}</h4>
       <icon v-show="submission.status !== 'not_graded'" class='QuestionComplete' name='check-circle'></icon>
       <icon v-show="submission.status === 'not_graded'" class='QuestionIncomplete' name='circle'></icon>
     </dt>
     <dd v-show='submission.id === show'>
-      {{submission.content}}
+      <p>{{submission.content}}</p>
+      <form 
+        @submit.prevent='handleGrade'
+        class='StudentSubmission--GradeForm'>
+        <input id='grade' type='text' v-model='grade' placeholder='Grade' />
+        <button type=submit id='submitButton'>Add Grade</button>
+      </form>
     </dd>
   </div>
 </template>
@@ -28,7 +34,8 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      grade: ''
     }
   },
   methods: {
@@ -38,6 +45,9 @@ export default {
       } else {
         this.show = id
       }
+    },
+    handleGrade(e){
+      this.submission.status = this.grade.toUpperCase().trim()
     }
   }
 }
