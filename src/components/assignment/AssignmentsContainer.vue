@@ -2,8 +2,9 @@
   <div class='AssignmentContainer'>
     <assignment
       v-for='(assignment, index) in assignments'
-      v-show="routeid === assignment.title.split(' ').join('-')"  
-      :routeid='routeid'
+      v-show="routeTitle === assignment.title.split(' ').join('-')"  
+      :routeTitle='routeTitle'
+      :routeId='routeId'
       :key='index'
       :assignment='assignment'
     ></assignment>
@@ -16,7 +17,8 @@ import Assignment from './Assignment'
 export default {
   data() {
     return {
-      routeid: ''
+      routeTitle: '',
+      routeId: 0
     }
   },
   components: {
@@ -29,7 +31,9 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      this.routeid = to.params.assignmentid
+      this.routeTitle = to.params.assignmentid
+      this.routeId = to.params.id
+      console.log(to)
     }
   }
 }

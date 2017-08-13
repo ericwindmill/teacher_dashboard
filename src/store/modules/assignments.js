@@ -13,7 +13,7 @@ const mutations = {
 
 const actions = {
   requestAssignments: async ({commit}) => {
-    let resp = await fetch('https://api.edmodo.com/assignments?access_token=12e7eaf1625004b7341b6d681fa3a7c1c551b5300cf7f7f3a02010e99c84695d')
+    let resp = await fetch('https://api.edmodo.com/assignments?access_token=12e7eaf1625004b7341b6d681fa3a7c1c551b5300cf7f7f3a02010e99c84695d&per_page=10')
     let data = await (resp.json())
     commit('RECEIVE_ASSIGNMENTS', data)
   }

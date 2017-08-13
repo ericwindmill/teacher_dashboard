@@ -1,7 +1,7 @@
 <template>
   <router-link 
     active-class='AssignmentListItem--active'  
-    :to="{name: 'Assignment', params: {assignmentid: assignment.title.split(' ').join('-')}}" 
+    :to="{name: 'Assignment', params: {assignmentid: assignment.title.split(' ').join('-'), id: assignment.id}}" 
   >
     <div class='AssignmentSidebar--ListItem' >
     <dt>{{assignment.title}}</dt>

@@ -18,6 +18,9 @@ export default {
   props: {
     assignment: {
       type: Object
+    },
+    routeId: {
+      type: Number
     }
   },
   components: {
@@ -30,13 +33,9 @@ export default {
     ])
   },
   watch: {
-    'routeid' (to, from) {
-      // console.log(to)
-      // console.log(this.routeid === this.assignment.id)
+    'routeId' (to, from) {
+      this.requestSubmissions(to)
     }
-  },
-  created () {
-    this.requestSubmissions(this.assignment.id)
   }
 }
 

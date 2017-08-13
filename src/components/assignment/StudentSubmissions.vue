@@ -5,8 +5,18 @@
 </template>
 
 <script>
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
-
+  props: {
+    assignment: {
+      type: Object
+    }
+  },
+  methods: {
+    ...mapActions([
+      'requestSubmissions'
+    ])
+  }
 }
 </script>
 

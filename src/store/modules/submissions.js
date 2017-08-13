@@ -4,7 +4,7 @@ const state = {
 
 const mutations = {
   'RECEIVE_SUBMISSIONS' (state, submissions) {
-    state.assignments = []
+    state.submissions = []
     submissions.forEach(submission => {
       state.submissions.push(submission)
     })
