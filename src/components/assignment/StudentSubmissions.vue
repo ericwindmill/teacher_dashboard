@@ -1,11 +1,18 @@
 <template>
   <div class='StudentSubmissions'>
-    <p> Student Submissions </p>
+    <submission-detail
+      v-for="(submission, index) in submissions"
+      :submission='submission'
+      :key='index'
+    >
+    </submission-detail>
+    
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
+import SubmissionDetail from './SubmissionDetail'
 export default {
   props: {
     assignment: {
@@ -16,6 +23,14 @@ export default {
     ...mapActions([
       'requestSubmissions'
     ])
+  },
+  computed: {
+    ...mapGetters([
+      'submissions'
+    ])
+  },
+  components: {
+    SubmissionDetail
   }
 }
 </script>

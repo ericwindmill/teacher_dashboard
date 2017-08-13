@@ -1,6 +1,6 @@
 <template>
   <div class='TopNav'>
-    <h1>Edmodo</h1>
+    <h1>Edmodo Dashboard</h1>
   </div>
 </template>
 
