@@ -1,7 +1,5 @@
 # Edmodo Teacher Dashboard
 
-[Check it out, here!](https://ericwindmill.github.io/teacher_dashboard/)
-
 This is a quick sample of how I'd build a teacher dashboard for Edmodo. It's a single page application built with Vue CLI. The purpose of the dashboard is for teachers to create, track and grade assignments.
 
 This application was built completely on the client-side.
