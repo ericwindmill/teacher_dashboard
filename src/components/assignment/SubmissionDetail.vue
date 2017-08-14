@@ -25,7 +25,7 @@
       <form 
         @submit.prevent='handleGrade'
         class='StudentSubmission--GradeForm'>
-        <input id='grade' type='text' v-model='grade' placeholder='Grade' />
+        <input id='grade' type='text' v-model='grade' placeholder='Grade' required/>
         <button type='submit' id='submitButton'>Add Grade</button>
       </form>
     </dd>
@@ -71,6 +71,7 @@ export default {
 }
 
 .Student {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
