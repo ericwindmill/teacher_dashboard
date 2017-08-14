@@ -4,10 +4,9 @@ const state = {
 
 const mutations = {
   'RECEIVE_ASSIGNMENTS' (state, assignments) {
-    // assignments.forEach(assignment => {
-    //   state.assignments.push(assignment)
-    // })
-    state.assignments = assignments
+    assignments.forEach(assignment => {
+      state.assignments.push(assignment)
+    })
   },
   'ADD_ASSIGNMENT' (state, assignment) {
     state.assignments.push(assignment)
