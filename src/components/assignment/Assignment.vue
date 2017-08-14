@@ -3,8 +3,14 @@
   >
     <div class='AssignmentDetails--Tabs'
     >
-      <span @click="handleShow('assignment')">Assignment</span>
-      <span @click="handleShow('submissions')">Student Submission</span>
+      <span 
+        :class="{active: show === 'assignment'}"
+        @click="handleShow('assignment')">Assignment
+      </span>
+      <span  
+        :class="{active: show === 'submissions'}"
+        @click="handleShow('submissions')">Student Submission
+      </span>
     </div>
 
     <section class="AssignmentDetails--Content">
@@ -27,7 +33,7 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      show: 'assignment'
+      show: 'assignment',
     }
   },
   props: {
@@ -48,7 +54,7 @@ export default {
     ]),
     handleShow(verb) {
       this.show = verb
-      // this.show === 'assignment' ? this.show = 'submissions' : this.show = 'assignment'
+  
     }
   },
   watch: {
@@ -60,6 +66,37 @@ export default {
 
 </script>
 
-<style>
+<style lang='scss'>
+@import "../../assets/styles/_vars.scss";
+
+.AssignmentDetails {
+  position: relative;
+  .AssignmentDetails--Tabs {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-around;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    padding:  20px 0;
+
+    & > span {
+      flex: 1 1;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid $grey;
+      cursor: pointer;
+
+      &:hover {
+        background: $grey-light;
+      }
+
+      &.active {
+        outline: 2px solid $teal;
+        outline-offset: -2px;
+      }
+    }
+  }
+}
   
 </style>

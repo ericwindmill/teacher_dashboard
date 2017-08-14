@@ -1,6 +1,7 @@
 <template>
   <router-link 
-    active-class='AssignmentListItem--active'  
+    active-class='AssignmentListItem--active'
+    tag='div'
     :to="{name: 'Assignment', params: {assignmentid: assignment.title.split(' ').join('-'), id: assignment.id}}" 
   >
     <div class='AssignmentSidebar--ListItem' >
@@ -24,7 +25,26 @@ export default {
 <style lang='scss'>
 @import "../../assets/styles/_vars.scss";
   .AssignmentSidebar--ListItem {
-    border: 1px solid $ink;
+    color: ink;
+    border: 2px solid $grey-dark;
+    padding: 10px;
+    cursor: pointer;
+    display:flex;
+    flex-direction: column;
+
+    &:hover {
+      background: $grey-light;
+    }
+
+    
+  }
+
+
+  .AssignmentListItem--active {
+    .AssignmentSidebar--ListItem {
+      outline: 2px solid $teal;
+      outline-offset: -2px;
+    }
   }
   
 </style>

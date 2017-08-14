@@ -38,7 +38,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+@import "../../assets/styles/_vars.scss";
 .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -59,6 +60,18 @@ export default {
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
     z-index: 9999;
+}
+
+.modal-default-button {
+  float: right;
+  font-size: .5rem;
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+
 }
 
 </style>

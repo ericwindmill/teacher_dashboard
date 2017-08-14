@@ -1,7 +1,7 @@
 <template>
   <div class='AssignmentSidebar--Container'>
-    <h3>Assignments </h3>
-    <dl>
+    <h3>Assignments</h3>
+    <dl class='AssignmentSidebar--List'>
         <assignment-list-items
           v-for='(assignment, index) in assignments'
           :key='index'
@@ -60,6 +60,9 @@ export default {
 }
 </script>
 
-<style>
-  
+<style lang='scss'>
+@import "../../assets/styles/_vars.scss";
+  .AssignmentSidebar--Container {
+     @include component
+  }
 </style>

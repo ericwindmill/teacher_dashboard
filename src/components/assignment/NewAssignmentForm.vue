@@ -15,14 +15,6 @@ export default {
   props: {
     action: {type: Function}
   },
-  // data() {
-  //   return {
-  //     title: '',
-  //     description: '',
-  //     due_at: '',
-  //     lock_after_due: false,
-  //   }
-  // },
   computed: {
     ...mapGetters([
       'newAssignment'

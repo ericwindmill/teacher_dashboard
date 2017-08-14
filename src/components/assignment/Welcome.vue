@@ -1,10 +1,11 @@
 <template>
   <div class='Dashboard--Home'>
     
-    <h2> Welcome Back, Teach!</h2>
-    <p> {{new Date().toDateString() }} </p>
-    <p> There are currently {{assignments.length}} open assignments </p>
-    <p> Click here to add a new assignmet </p>
+    <span class='Dashboard--Header'>
+      <h2> Welcome Back, Teach!</h2>
+      <p> {{new Date().toDateString() }} </p>
+    </span>
+    <p> There are currently <strong>{{assignments.length}}</strong> open assignments.</p>
     <modal 
         v-show="showModal"
         :action='modalAction'
@@ -46,8 +47,25 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
+@import "../../assets/styles/_vars.scss";
+.Dashboard--Home {
 
+  > p {
+    padding-bottom: $spacing-unit;
+  }
+  
+  .Dashboard--Header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 25px;
+
+    border-bottom: 1px solid $grey;
+    margin-bottom: $spacing-unit;
+  }
+}
   
 // .modal {
 //   transition: all .3s ease;

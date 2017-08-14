@@ -33,6 +33,7 @@ export default {
 .Home--Nav {
   max-width: 250px;
   flex: 1 2;
+  height: max-content;
 }
 
 .Home--Content {
@@ -40,7 +41,7 @@ export default {
   max-width: 75%;
   max-height: 75vh;
   overflow-y: scroll;
-  margin: $spacing-unit;
+  margin-left: $spacing-unit;
 }
   
 </style>

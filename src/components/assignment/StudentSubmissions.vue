@@ -3,7 +3,7 @@
     <div
      v-show='submissions.length === 0'
     >
-      <p>No submissions yet.</p>
+      <p class='StudentSubmissions--none'>No submissions yet.</p>
     </div>
     <submission-detail
       v-for="(submission, index) in submissions"
@@ -35,6 +35,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+@import "../../assets/styles/_vars.scss";
+
+.StudentSubmissions {
+  margin-top: $spacing-unit;
+}
+
+.StudentSubmissions--none {
+  color: $red-dark;
+}
   
 </style>
