@@ -9,6 +9,8 @@
       <h4 v-show="submission.status !== 'not_graded'">{{submission.status}}</h4>
       <icon v-show="submission.status !== 'not_graded'" class='QuestionComplete' name='check-circle'></icon>
       <icon v-show="submission.status === 'not_graded'" class='QuestionIncomplete' name='circle'></icon>
+      <icon v-show="submission.id !== show" class='open-icon' name="chevron-down"></icon> 
+      <icon v-show="submission.id === show" class='close-icon' name="times"></icon> 
     </dt>
     <dd v-show='submission.id === show'>
       <p>{{submission.content}}</p>
@@ -16,7 +18,7 @@
         @submit.prevent='handleGrade'
         class='StudentSubmission--GradeForm'>
         <input id='grade' type='text' v-model='grade' placeholder='Grade' />
-        <button type=submit id='submitButton'>Add Grade</button>
+        <button type='submit' id='submitButton'>Add Grade</button>
       </form>
     </dd>
   </div>
