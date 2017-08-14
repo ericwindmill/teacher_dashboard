@@ -17,13 +17,7 @@
       @click="showModal=true"
     >
       New Assignment
-    </button>
-        <button 
-      id="show-modal" 
-      @click="showModal=false"
-    >
-nvm
-    </button>
+    </button> 
   </div>
 </template>
 

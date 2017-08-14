@@ -1,8 +1,8 @@
 <template>
   <transition name='modal' mode='in-out'>
-    <div class="modal-mask">
-      <div class="modal-container">
-        <button type='submit' @click='action' class="modal-default-button">
+    <div class="modal-mask" @click='close'>
+      <div class="modal-container" @click.stop>
+        <button type='submit' @click='close' class="modal-default-button">
           <icon name='times'></icon>
         </button>
         <new-assignment-form
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 import NewAssignmentForm from '../assignment/NewAssignmentForm'
 export default {
   props: {
@@ -24,8 +25,16 @@ export default {
   },
   components: {
     NewAssignmentForm: NewAssignmentForm
-  }
-
+  },
+  methods: {
+    close: function () {
+      this.action()
+      this.resetNewAssignmentFields()
+    },
+    ...mapActions([
+      'resetNewAssignmentFields'
+    ])
+  },
 }
 </script>
 
@@ -49,6 +58,7 @@ export default {
     border-radius: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
+    z-index: 9999;
 }
 
 </style>

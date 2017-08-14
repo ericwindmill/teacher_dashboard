@@ -9,13 +9,37 @@
         ></assignment-list-items>
       </router-link>
     </dl>
+    <modal 
+        v-show="showModal"
+        :action='modalAction'
+        :submitButton='modalSubmit'
+        :modalType='modalType'
+        @close="showModal=false"
+    ></modal>
+    <button 
+      id="show-modal" 
+      @click="showModal=true"
+    >
+      New Assignment
+    </button>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import AssignmentListItems from './AssignmentListItems'
+import modal from '../ui/modal'
 export default {
+  data(){
+    return {
+      modalAction: () => {
+         this.showModal = !this.showModal
+      },
+      showModal: false,
+      modalSubmit: 'Add Assignment',
+      modalType: 'new assignment'
+    }
+  },
   computed: {
     ...mapGetters([
       'assignments'
@@ -30,7 +54,8 @@ export default {
     this.requestAssignments()
   },
   components: {
-    AssignmentListItems
+    AssignmentListItems,
+    modal
   }
 }
 </script>

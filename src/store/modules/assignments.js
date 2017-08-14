@@ -1,15 +1,28 @@
 const state = {
-  assignments: []
+  assignments: [],
+  newAssignment: {
+    title: '',
+    description: '',
+    due_at: '',
+    lock_after_due: false
+  }
 }
 
 const mutations = {
   'RECEIVE_ASSIGNMENTS' (state, assignments) {
+    state.assignments = []
     assignments.forEach(assignment => {
       state.assignments.push(assignment)
     })
   },
   'ADD_ASSIGNMENT' (state, assignment) {
     state.assignments.push(assignment)
+  },
+  'RESET_NEW_ASSIGNMENT_FIELDS' (state) {
+    state.newAssignment.title = '',
+    state.newAssignment.description = '',
+    state.newAssignment.due_at = '',
+    state.newAssignment.lock_after_due = false
   }
 }
 
@@ -20,13 +33,21 @@ const actions = {
     commit('RECEIVE_ASSIGNMENTS', data)
   },
   addAssignment: async ({commit}, assignment) => {
-    commit('ADD_ASSIGNMENT', assignment)
+    await commit('ADD_ASSIGNMENT', assignment)
+    commit('RESET_NEW_ASSIGNMENT_FIELDS')
+
+  },
+  resetNewAssignmentFields: ({commit}) => {
+    commit('RESET_NEW_ASSIGNMENT_FIELDS')
   }
 }
 
 const getters = {
   assignments: state => {
     return state.assignments
+  },
+  newAssignment: state => {
+    return state.newAssignment
   }
 }
 
