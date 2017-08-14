@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent='handleNewAssignment'>
-    <input type='text' placeholder='Title' v-model='newAssignment.title' />
+    <input type='text' placeholder='Title' v-model='newAssignment.title' required/>
     <textarea placeholder='Description' v-model='newAssignment.description'></textarea>
     <input type='date' placeholder="Due Date" v-model='newAssignment.due_at' />
     <label for='lock_after_due'>Lock After Due?</label>
@@ -47,7 +47,7 @@ export default {
         lock_after_due: this.newAssignment.lock_after_due
       }
       await this.addAssignment(assignment)
-      
+
       this.action()
     }
   }
