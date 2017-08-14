@@ -1,5 +1,10 @@
 <template>
   <div class='StudentSubmissions'>
+    <div
+     v-show='submissions.length === 0'
+    >
+      <p>No submissions yet.</p>
+    </div>
     <submission-detail
       v-for="(submission, index) in submissions"
       :submission='submission'
@@ -19,11 +24,6 @@ export default {
       type: Object
     }
   },
-  // methods: {
-  //   ...mapActions([
-  //     'requestSubmissions'
-  //   ])
-  // },
   computed: {
     ...mapGetters([
       'submissions'
