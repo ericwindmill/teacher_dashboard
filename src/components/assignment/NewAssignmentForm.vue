@@ -1,10 +1,18 @@
 <template>
-  <form @submit.prevent='handleNewAssignment'>
+  <form class='NewAssignment' @submit.prevent='handleNewAssignment'>
+    <h3>New Assignment</h3>
     <input type='text' placeholder='Title' v-model='newAssignment.title' required/>
-    <textarea placeholder='Description' v-model='newAssignment.description'></textarea>
-    <input type='date' placeholder="Due Date" v-model='newAssignment.due_at' />
-    <label for='lock_after_due'>Lock After Due?</label>
-    <input type='checkbox' name='lock_after_due' v-model='newAssignment.lock_after_due' value='true' />
+    <textarea placeholder='Description' class='NewAssignment--Textarea' v-model='newAssignment.description'></textarea>
+    <div id='DueDetails'>
+      <label for='due_at'>
+        Due: 
+        <input type='date' id='due_at' placeholder="Due Date" v-model='newAssignment.due_at' />
+      </label>
+      <label for='lock_after_due'>
+        <input type='checkbox' id='lock_after_due' name='lock_after_due' v-model='newAssignment.lock_after_due' value='true' />
+        Lock After Due?
+      </label>
+    </div>
     <button type='submit'>Add Assignment</button>
   </form>
 </template>
@@ -46,7 +54,27 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+@import "../../assets/styles/_vars.scss";
+.NewAssignment {
+  > * {
+    width: 80%;
+    margin: 5px 0;
+    display: block;
+    margin: 7.5px auto;
+  }
 
+  > #DueDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+}
+
+.NewAssignment--Textarea {
+  width: 80%;
+  height: 300px;
+}
 </style>

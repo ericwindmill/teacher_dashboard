@@ -52,7 +52,7 @@ export default {
 }
 
 .modal-container {
-    width: 300px;
+    width: 50%;
     margin: 40px auto 0;
     padding: 20px 30px;
     background-color: #fff;
@@ -63,14 +63,8 @@ export default {
 }
 
 .modal-default-button {
-  float: right;
+  margin-left: 85%;
   font-size: .5rem;
-
-  &:after {
-    content: " ";
-    display: table;
-    clear: both;
-  }
 
 }
 
