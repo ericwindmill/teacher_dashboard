@@ -14,7 +14,6 @@ ______
 * Webpack
 * Babble
 * Vue-Awesome (Font Awesome Wrapper)
-
 ______
 ## Screen Shots
 
@@ -26,16 +25,13 @@ ______
 
 ### Add Assignment
 ![Edmodo Dashboard](http://res.cloudinary.com/ericwindmill/image/upload/v1502732694/edmodo/Screen_Shot_2017-08-14_at_10.43.13_AM.png)
-
 ______
 ## Caveats
 Many of the features require a database to preserve data, and therefor are used here only as previews of what could be.
-*Adding a grade to a student submission.
-
-
-
+* Adding a grade to a student submission.
+* Adding a new assignment.
 ______
-Run Locally
+## Run Locally
 
 ```
 git clone https://github.com/ericwindmill/teacher_dashboard.git
